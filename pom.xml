@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org</groupId>
@@ -15,6 +16,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<spring.web.version>4.2.5.RELEASE</spring.web.version>
+		<spring.webmvc.version>4.2.5.RELEASE</spring.webmvc.version>
+		<hibernate.core.version>5.2.5.Final</hibernate.core.version>
 	</properties>
 
 	<dependencies>
@@ -38,6 +42,18 @@
 			<artifactId>spring-tx</artifactId>
 			<version>4.2.5.RELEASE</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.web.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.webmvc.version}</version>
+		</dependency>
 
 		<!-- Spring Data JPA 1.2 -->
 		<dependency>
@@ -46,17 +62,10 @@
 			<version>1.3.0.RELEASE</version>
 		</dependency>
 
-		<!-- Hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.0.1.Final</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.0.1.Final</version>
+			<version>${hibernate.core.version}</version>
 		</dependency>
 
 		<!-- MySQL driver 5.1 to be able to communicate with MySQL databases -->
@@ -96,14 +105,7 @@
 	</dependencies>
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.3</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
+
 		</plugins>
 	</build>
 </project>

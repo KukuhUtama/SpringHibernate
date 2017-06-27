@@ -1,6 +1,6 @@
-org\spring_mvc\dao\impl\PersonDaoImpl.class
-org\spring_mvc\controller\PersonController.class
-org\spring_mvc\entity\Person.class
-org\spring_mvc\service\impl\PersonServiceImpl.class
-org\spring_mvc\service\PersonService.class
-org\spring_mvc\dao\PersonDao.class
+org\mvc\security\service\UserService.class
+org\mvc\security\service\impl\UserServiceImpl.class
+org\mvc\security\controller\UserController.class
+org\mvc\security\repository\UserRepository.class
+org\mvc\security\entity\User.class
+org\mvc\security\repository\impl\UserRepositoryImpl.class
