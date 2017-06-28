@@ -1,6 +1,10 @@
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\repository\impl\UserRepositoryImpl.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\repository\UserRepository.java
+E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\entity\Role.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\entity\User.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\service\impl\UserServiceImpl.java
+E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\repository\BaseSecurityRepository.java
+E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\repository\impl\BaseSecurityRepositoryImpl.java
+E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\controller\HomeController.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\service\UserService.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\controller\UserController.java
