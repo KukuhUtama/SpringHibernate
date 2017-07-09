@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BaseSecurityRepositoryImpl<E> implements BaseSecurityRepository<E> {
 
-	private Class<E> entity;
 	@Autowired
 	private SessionFactory sessionFactory;
+	private Class<E> entity;
 	private Criteria criteria;
 
 	public BaseSecurityRepositoryImpl() {
@@ -40,6 +40,7 @@ public abstract class BaseSecurityRepositoryImpl<E> implements BaseSecurityRepos
 		getCurrentSession().saveOrUpdate(e);
 	}
 
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	public E findByName(String name) {
 		criteria = getCurrentSession().createCriteria(entity.getClass());
 		criteria.add(Restrictions.eq("username", name).ignoreCase());

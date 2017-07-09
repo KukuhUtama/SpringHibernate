@@ -9,6 +9,14 @@ public class HomeController {
 
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String index(){
+		System.out.println("------------------inhere-----------");
 		return "index";
 	}
+	
+	@RequestMapping(value="/registration",method=RequestMethod.GET)
+	public String registration() {
+		System.out.println("------------------inhere reg---------");
+		return "registration";
+	}
+
 }
