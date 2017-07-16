@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,15 +18,30 @@
 </head>
 <body>
 <div class="container">
-  <h2>Button Styles</h2>
-  <button type="button" class="btn">Basic</button>
-  <button type="button" class="btn btn-default">Default</button>
-  <button type="button" class="btn btn-primary">Primary</button>
-  <button type="button" class="btn btn-success">Success</button>
-  <button type="button" class="btn btn-info">Info</button>
-  <button type="button" class="btn btn-warning">Warning</button>
-  <button type="button" class="btn btn-danger">Danger</button>
-  <button type="button" class="btn btn-link">Link</button>      
+<form:form  class="form-horizontal" modelAttribute="user" action="registration">
+        <h2>Registration Form</h2>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="username">Username</label>
+            <div class="control-label col-sm-8">
+                  <form:input type="text" class="form-control" id="username" path="username" placeholder="Type Username"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+              <label class="control-label col-sm-2" for="password">Password</label>
+              <div class="control-label col-sm-8">
+                   <form:input type="password" class="form-control" id="password" path="password" placeholder="Type Password"/>
+              </div>
+        </div>
+        
+        <div class="form-group">
+              <label class="control-label col-sm-2" for="confirm-password">Confirm Password</label>
+              <div class="control-label col-sm-8">
+                  <form:input type="password" class="form-control" id="confirm-password" path="passwordConfirm" placeholder="Re-type Password"/>
+              </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+</form:form>
 </div>
 </body>
 </html>

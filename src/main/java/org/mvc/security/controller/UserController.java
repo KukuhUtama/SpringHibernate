@@ -1,12 +1,21 @@
 package org.mvc.security.controller;
 
+import org.mvc.security.entity.User;
+import org.mvc.security.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserController {
+
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value="/welcome",method=RequestMethod.GET)
 	public ModelAndView helloWorld() {
@@ -15,9 +24,15 @@ public class UserController {
 		return new ModelAndView("welcome", "message", message);
 	}
 	
-	/*@RequestMapping(value="/registration",method=RequestMethod.GET)
-	public String registration() {
+	@RequestMapping(value="/registration",method=RequestMethod.GET)
+	public String showUserRegistratio(Model model) {
+	    model.addAttribute("user", new User());
 		return "registration";
 	}
-*/
+	
+	@RequestMapping(value="/registration", method=RequestMethod.POST) 
+	public String saveUserRegistration(@ModelAttribute("user") User user, BindingResult bindingResult, Model model){
+		userService.add(user);
+		return "registration";
+	}
 }

@@ -13,9 +13,7 @@
         http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 		
-	<context:property-placeholder location="classpath:application.properties"
-		ignore-unresolvable="true" />
-
+    <context:annotation-config/>
 	<bean id="springDatasource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="url" value="${jdbc.url}" />
@@ -25,32 +23,26 @@
 	</bean>
 
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="springDatasource" />
-		<property name="packagesToScan" value="org.personal.project" />
+		<property name="packagesToScan" value="org.mvc.security.entity" />
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop> 
-				<prop key="hibernate.c3p0.min_size">200</prop>
-				<prop key="hibernate.c3p0.max_size">100</prop>
-				<prop key="hibernate.c3p0.timeout">300</prop>
-				<prop key="hibernate.c3p0.max_statements">500</prop>
-				<prop key="hibernate.c3p0.idle_test_period">3000</prop>
-			<!--     <prop key="hibernate.current_session_context_class">thread</prop> -->
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
 			</props>
 		</property>
 	</bean>
 
+	<tx:annotation-driven transaction-manager="transactionManager" /> 
+	
 	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<tx:annotation-driven transaction-manager="transactionManager" /> 
-	
-	<!-- <context:annotation-config /> -->
-	<context:component-scan base-package="org.mvc.security" />
-	
+
+
+
 </beans>

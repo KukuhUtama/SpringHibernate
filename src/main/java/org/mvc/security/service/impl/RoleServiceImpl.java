@@ -1,10 +1,15 @@
 package org.mvc.security.service.impl;
 
+import javax.transaction.Transactional;
+
 import org.mvc.security.entity.Role;
 import org.mvc.security.repository.RoleRepository;
 import org.mvc.security.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
+@Transactional
 public class RoleServiceImpl implements RoleService {
 
 	@Autowired

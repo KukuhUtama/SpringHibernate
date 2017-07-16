@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org</groupId>
@@ -18,6 +18,11 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<spring.web.version>4.2.5.RELEASE</spring.web.version>
 		<spring.webmvc.version>4.2.5.RELEASE</spring.webmvc.version>
+		<spring.core.version>4.2.5.RELEASE</spring.core.version>
+		<spring.tx.version>4.2.5.RELEASE</spring.tx.version>
+		<spring.context.version>4.2.5.RELEASE</spring.context.version>
+		<spring.orm.version>4.2.5.RELEASE</spring.orm.version>
+		<spring.jdbc.version>4.2.5.RELEASE</spring.jdbc.version>
 		<hibernate.core.version>5.2.5.Final</hibernate.core.version>
 	</properties>
 
@@ -30,29 +35,47 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Spring context and tx -->
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.core.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.2.5.RELEASE</version>
+			<version>${spring.context.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>4.2.5.RELEASE</version>
+			<version>${spring.tx.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>${spring.web.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.webmvc.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.orm.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.jdbc.version}</version>
 		</dependency>
 
 		<!-- Spring Data JPA 1.2 -->
@@ -74,8 +97,8 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.16</version>
 		</dependency>
-        
-        <!-- Servlet -->
+
+		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -93,7 +116,7 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 		<!-- jUnit -->
 		<dependency>
 			<groupId>junit</groupId>

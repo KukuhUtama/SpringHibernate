@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class BaseSecurityRepositoryImpl<E> implements BaseSecurityRepository<E> {
 
 	@Autowired
-	private SessionFactory sessionFactory;
+    SessionFactory sessionFactory;
 	private Class<E> entity;
 	private Criteria criteria;
 
@@ -37,7 +37,9 @@ public abstract class BaseSecurityRepositoryImpl<E> implements BaseSecurityRepos
 	}
 
 	public void add(E e) {
+		System.out.println(e);
 		getCurrentSession().saveOrUpdate(e);
+		//getCurrentSession().persist(e);
 	}
 
 	@SuppressWarnings({ "deprecation", "unchecked" })
