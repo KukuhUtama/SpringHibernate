@@ -2,6 +2,7 @@ package org.mvc.security.entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,8 +21,7 @@ import javax.persistence.Transient;
 public class User {
 
 	@Id
-	@Column(name = "id")
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(name = "username")

@@ -2,9 +2,11 @@ org\mvc\security\service\impl\UserServiceImpl.class
 org\mvc\security\repository\BaseSecurityRepository.class
 org\mvc\security\repository\UserRepository.class
 org\mvc\security\controller\HomeController.class
+org\mvc\security\validator\UserValidator.class
 org\mvc\security\entity\User.class
 org\mvc\security\repository\RoleRepository.class
 org\mvc\security\repository\impl\BaseSecurityRepositoryImpl.class
+org\mvc\security\controller\RoleController.class
 org\mvc\security\service\UserService.class
 org\mvc\security\repository\BaseRepository.class
 org\mvc\security\service\RoleService.class
