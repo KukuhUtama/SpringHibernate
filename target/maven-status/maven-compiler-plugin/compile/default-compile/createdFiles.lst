@@ -16,3 +16,4 @@ org\mvc\security\repository\impl\RoleRepositoryImpl.class
 org\mvc\security\service\impl\RoleServiceImpl.class
 org\mvc\security\entity\Role.class
 org\mvc\security\repository\impl\UserRepositoryImpl.class
+org\mvc\security\validator\RoleValidator.class

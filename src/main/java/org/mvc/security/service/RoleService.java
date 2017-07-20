@@ -6,4 +6,5 @@ public interface RoleService {
 	public void add(Role role);
 	public Role findById(int id);
 	public void delete(Role role);
+	public Role findByName(String name);
 }

@@ -1,6 +1,7 @@
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\controller\RoleController.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\entity\Role.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\service\impl\UserServiceImpl.java
+E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\validator\RoleValidator.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\repository\BaseSecurityRepository.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\repository\impl\BaseRepositoryImpl.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\repository\impl\BaseSecurityRepositoryImpl.java
