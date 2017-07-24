@@ -3,11 +3,12 @@ package org.mvc.security.repository.impl;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
+import javax.persistence.Query;
+
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.mvc.security.repository.BaseSecurityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,7 +17,8 @@ public abstract class BaseSecurityRepositoryImpl<E> implements BaseSecurityRepos
 	@Autowired
     SessionFactory sessionFactory;
 	private Class<E> entity;
-	private Criteria criteria;
+	protected Criteria criteria;
+	protected Query query;
 
 	public BaseSecurityRepositoryImpl() {
 		Type t = getClass().getGenericSuperclass();
@@ -37,14 +39,7 @@ public abstract class BaseSecurityRepositoryImpl<E> implements BaseSecurityRepos
 	}
 
 	public void add(E e) {
-		System.out.println(e);
 		getCurrentSession().saveOrUpdate(e);
 	}
 
-	@SuppressWarnings({ "deprecation", "unchecked" })
-	public E findByName(String name) {
-		criteria = getCurrentSession().createCriteria(entity.getClass());
-		criteria.add(Restrictions.eq("username", name).ignoreCase());
-		return (E) criteria.uniqueResult();
-	}
 }

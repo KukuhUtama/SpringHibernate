@@ -3,11 +3,11 @@ package org.mvc.security.repository.impl;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-import org.hibernate.Criteria;
+import javax.persistence.Query;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.mvc.security.repository.BaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,7 +16,7 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T> {
 	@Autowired
 	private SessionFactory sessionFactory;
 	private Class<T> entity;
-	private Criteria criteria;
+	protected Query query;
 
 	public BaseRepositoryImpl() {
 		Type t = getClass().getGenericSuperclass();
@@ -48,10 +48,5 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T> {
 	public void delete(T entity) {
 		getCurrentSession().delete(entity);
 	}
-	
-	public T findByName(String name){
-		criteria = getCurrentSession().createCriteria(entity.getClass());
-		criteria.add(Restrictions.eq("name", name).ignoreCase());
-		return (T) criteria.uniqueResult();
-	}
+
 }

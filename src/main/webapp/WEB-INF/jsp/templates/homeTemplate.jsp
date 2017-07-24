@@ -29,7 +29,7 @@
     
     /* Set black background color, white text and some padding */
     footer {
-      background-color: blue;
+      background-color: #33DAFF;
       color: black;
       padding-top: 10px;
       height: 60px;

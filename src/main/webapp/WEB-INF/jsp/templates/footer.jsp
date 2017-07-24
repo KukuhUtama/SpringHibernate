@@ -1,3 +1,3 @@
 <footer class="container-fluid text-center">
- <h5>hello footer</h5>
+ <h5>kukuh.utama</h5>
 </footer>

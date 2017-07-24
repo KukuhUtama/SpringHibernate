@@ -40,6 +40,6 @@ public class UserController {
 			return "registration";
 		}
 		userService.add(user);
-		return "welcome";
+		return "redirect:/welcome";
 	}
 }

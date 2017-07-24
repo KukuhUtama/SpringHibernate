@@ -7,7 +7,6 @@
    <!-- Base Define -->
    <definition name="base.home" template="/WEB-INF/jsp/templates/homeTemplate.jsp">  
        <put-attribute name="header" value="/WEB-INF/jsp/templates/header.jsp" />  
-       <put-attribute name="content" value="/WEB-INF/jsp/home.jsp" />  
        <put-attribute name="footer" value="/WEB-INF/jsp/templates/footer.jsp" />  
    </definition>  
    
@@ -18,20 +17,32 @@
  
    <!-- Registration Page -->
    <definition name="registration" extends="base.log">  
-       <put-attribute name="title" value="Home Page" />  
+       <put-attribute name="title" value="Registration Page" />  
        <put-attribute name="content" value="/WEB-INF/jsp/registration.jsp" />  
+   </definition>  
+   
+   <!-- Log In Page -->
+     <definition name="login" extends="base.log">  
+       <put-attribute name="title" value="Log In Page" />  
+       <put-attribute name="content" value="/WEB-INF/jsp/login.jsp" />  
    </definition>  
    
      <!--Index Page -->
     <definition name="index" extends="base.home">  
        <put-attribute name="title" value="Home Page" />  
-       <put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />  
+       <put-attribute name="content" value="/WEB-INF/jsp/index.jsp" />  
    </definition> 
       
     <!-- Home Page -->
     <definition name="home" extends="base.home">  
        <put-attribute name="title" value="Home Page" />  
-       <put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />  
+       <put-attribute name="content" value="/WEB-INF/jsp/home.jsp" />  
    </definition>
+   
+     <!-- Home Page -->
+    <definition name="admin" extends="base.home">  
+       <put-attribute name="title" value="Home Page" />  
+       <put-attribute name="content" value="/WEB-INF/jsp/role.jsp" />  
+     </definition>
  
 </tiles-definitions>

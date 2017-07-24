@@ -1,0 +1,37 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+	<http auto-config="true">
+	<csrf disabled="true"/>
+		<intercept-url pattern="/" access="hasRole('USER')" />
+		<intercept-url pattern="/welcome" access="hasAnyRole('USER', 'SA')" />
+		<intercept-url pattern="/admin" access="hasRole('SA')" />
+		
+		<form-login login-page="/login" 
+		   default-target-url="/welcome"
+			authentication-failure-url="/login?error"
+		    username-parameter="username"
+			password-parameter="password" />
+		<logout logout-success-url="/login?logout" />
+	</http>
+
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref="userDetailsServiceImpl">
+		</authentication-provider>
+	</authentication-manager>
+
+   <beans:bean id="userDetailsServiceImpl"
+		class="org.mvc.security.service.impl.UserDetailsServiceImpl"></beans:bean> 
+
+	<beans:bean id="encoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<beans:constructor-arg name="strength" value="11" />
+	</beans:bean> 
+	
+	
+
+</beans:beans>

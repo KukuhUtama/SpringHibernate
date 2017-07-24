@@ -12,6 +12,7 @@
 	<context:component-scan base-package="org.mvc" />
 		
 	<import resource="spring-context.xml"></import>
+	<import resource="spring-security.xml"></import>
 	<import resource="mvc-dispatcher-servlet.xml"></import>
 	
 	<context:property-placeholder location="classpath:application.properties" ignore-unresolvable="true" />
