@@ -2,7 +2,7 @@
   <div class="row content">
  
     <div class="col-sm-12 text-left"> 
-       Hello Home
+       User Home page
     </div>
  
   </div>

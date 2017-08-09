@@ -27,22 +27,23 @@
        <put-attribute name="content" value="/WEB-INF/jsp/login.jsp" />  
    </definition>  
    
-     <!--Index Page -->
+     <!--Anonymous Index Page -->
     <definition name="index" extends="base.home">  
        <put-attribute name="title" value="Home Page" />  
        <put-attribute name="content" value="/WEB-INF/jsp/index.jsp" />  
    </definition> 
       
-    <!-- Home Page -->
+    <!-- User Home Page -->
     <definition name="home" extends="base.home">  
        <put-attribute name="title" value="Home Page" />  
        <put-attribute name="content" value="/WEB-INF/jsp/home.jsp" />  
    </definition>
    
-     <!-- Home Page -->
+     <!-- Admin Home Page -->
     <definition name="admin" extends="base.home">  
        <put-attribute name="title" value="Home Page" />  
        <put-attribute name="content" value="/WEB-INF/jsp/role.jsp" />  
      </definition>
  
+
 </tiles-definitions>

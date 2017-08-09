@@ -15,6 +15,10 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 //https://howtoprogramwithjava.com/hibernate-manytomany-unidirectional-bidirectional/
 //https://hellokoding.com/registration-and-login-example-with-spring-xml-configuration-maven-jsp-and-mysql/
+//http://websystique.com/spring-security/spring-security-4-role-based-login-example/
+//https://stackoverflow.com/questions/33205236/spring-security-added-prefix-role-to-all-roles-name
+//https://stackoverflow.com/questions/19525380/difference-between-role-and-grantedauthority-in-spring-security
+//http://en.tekstenuitleg.net/blog/spring-security-with-roles-and-rights
 
 @Entity
 @Table(name = "users")

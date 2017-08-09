@@ -7,12 +7,12 @@
 
 	<http auto-config="true">
 	<csrf disabled="true"/>
-		<intercept-url pattern="/" access="hasRole('USER')" />
-		<intercept-url pattern="/welcome" access="hasAnyRole('USER', 'SA')" />
-		<intercept-url pattern="/admin" access="hasRole('SA')" />
+		<intercept-url pattern="/" access="permitAll" />
+		<intercept-url pattern="/home**" access="hasAuthority('USER')" />
+		<intercept-url pattern="/admin**" access="hasAuthority('SA')" />
 		
 		<form-login login-page="/login" 
-		   default-target-url="/welcome"
+		    authentication-success-handler-ref="customSuccessHandler"
 			authentication-failure-url="/login?error"
 		    username-parameter="username"
 			password-parameter="password" />
@@ -20,18 +20,11 @@
 	</http>
 
 	<authentication-manager alias="authenticationManager">
-		<authentication-provider user-service-ref="userDetailsServiceImpl">
+		<authentication-provider user-service-ref="userDetailsService">
 		</authentication-provider>
 	</authentication-manager>
 
-   <beans:bean id="userDetailsServiceImpl"
-		class="org.mvc.security.service.impl.UserDetailsServiceImpl"></beans:bean> 
-
-	<beans:bean id="encoder"
-		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
-		<beans:constructor-arg name="strength" value="11" />
-	</beans:bean> 
-	
+	<beans:bean id="customSuccessHandler"  class="org.mvc.security.configuration.CustomSuccessHandler" />
 	
 
 </beans:beans>

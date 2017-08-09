@@ -22,7 +22,6 @@ public class UserController {
 
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public ModelAndView helloWorld() {
-
 		String message = "Hello There";
 		return new ModelAndView("welcome", "message", message);
 	}

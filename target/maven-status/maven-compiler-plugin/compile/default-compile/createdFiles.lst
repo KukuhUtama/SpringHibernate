@@ -18,5 +18,6 @@ org\mvc\security\repository\impl\BaseSecurityRepositoryImpl.class
 org\mvc\security\repository\BaseRepository.class
 org\mvc\security\repository\impl\BaseRepositoryImpl.class
 org\mvc\security\repository\impl\RoleRepositoryImpl.class
+org\mvc\security\configuration\CustomSuccessHandler.class
 org\mvc\security\repository\impl\UserRepositoryImpl.class
 org\mvc\security\validator\RoleValidator.class

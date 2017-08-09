@@ -19,4 +19,5 @@ E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\s
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\service\impl\UserDetailsServiceImpl.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\controller\HomeController.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\service\RoleService.java
+E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\configuration\CustomSuccessHandler.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\controller\UserController.java
