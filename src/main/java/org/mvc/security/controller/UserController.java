@@ -1,5 +1,6 @@
 package org.mvc.security.controller;
 
+import org.mvc.security.entity.Role;
 import org.mvc.security.entity.User;
 import org.mvc.security.service.UserService;
 import org.mvc.security.validator.UserValidator;
@@ -40,5 +41,29 @@ public class UserController {
 		}
 		userService.add(user);
 		return "redirect:/welcome";
+	}
+	
+	@RequestMapping(value = "/admin/addrole", method = RequestMethod.GET)
+	public String showAddRole(Model model){
+		model.addAttribute("role", new Role());
+		return "admin/addrole";
+	}
+	
+	@RequestMapping(value = "/admin/addrole", method = RequestMethod.POST)
+	public String saveAddRole(Model model){
+		
+		return "admin/listrole";
+	}
+	
+	@RequestMapping(value = "/admin/listrole", method = RequestMethod.GET)
+	public String listRole(Model model){
+		
+		return "admin/listrole";
+	}
+	
+	@RequestMapping(value = "/admin/listuser", method = RequestMethod.GET)
+	public String listUser(Model model){
+		
+		return "admin/listuser";
 	}
 }

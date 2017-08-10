@@ -39,10 +39,31 @@
        <put-attribute name="content" value="/WEB-INF/jsp/home.jsp" />  
    </definition>
    
+    <!-- Moderator Home Page -->
+    <definition name="moderator" extends="base.home">  
+       <put-attribute name="title" value="Home Page" />  
+       <put-attribute name="content" value="/WEB-INF/jsp/moderator.jsp" />  
+     </definition>
+     
      <!-- Admin Home Page -->
     <definition name="admin" extends="base.home">  
        <put-attribute name="title" value="Home Page" />  
-       <put-attribute name="content" value="/WEB-INF/jsp/role.jsp" />  
+       <put-attribute name="content" value="/WEB-INF/jsp/admin.jsp" />  
+     </definition>
+     
+     <definition name="admin/addrole" extends="base.home">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="content" value="/WEB-INF/jsp/addRole.jsp" />  
+     </definition>
+     
+      <definition name="admin/listrole" extends="base.home">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="content" value="/WEB-INF/jsp/listRole.jsp" />  
+     </definition>
+     
+     <definition name="admin/listuser" extends="base.home">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="content" value="/WEB-INF/jsp/listUser.jsp" />  
      </definition>
  
 

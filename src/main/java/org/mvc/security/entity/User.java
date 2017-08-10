@@ -20,6 +20,12 @@ import javax.persistence.Transient;
 //https://stackoverflow.com/questions/19525380/difference-between-role-and-grantedauthority-in-spring-security
 //http://en.tekstenuitleg.net/blog/spring-security-with-roles-and-rights
 
+//https://stackoverflow.com/questions/6893061/how-to-dynamically-decide-intercept-url-access-attribute-value-in-spring-secur
+//https://github.com/srinivas1918/spring-security-dynamic-authorization-and-authentication
+//https://stackoverflow.com/questions/8321696/creating-new-roles-and-permissions-dynamically-in-spring-security-3
+//https://stackoverflow.com/questions/6893061/how-to-dynamically-decide-intercept-url-access-attribute-value-in-spring-secur
+//https://stackoverflow.com/questions/8321696/creating-new-roles-and-permissions-dynamically-in-spring-security-3
+
 @Entity
 @Table(name = "users")
 public class User {
