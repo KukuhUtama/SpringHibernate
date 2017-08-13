@@ -1,5 +1,7 @@
 package org.mvc.security.service.impl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.mvc.security.entity.Role;
@@ -33,6 +35,11 @@ public class RoleServiceImpl implements RoleService {
 	@Override
 	public Role findByName(String name) {
 		return roleRepository.findRoleByName(name);
+	}
+
+	@Override
+	public List<Role> getAllRole() {
+		return roleRepository.getAll();
 	}
 
 }

@@ -1,5 +1,7 @@
 package org.mvc.security.service.impl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.mvc.security.entity.User;
@@ -29,6 +31,11 @@ public class UserServiceImpl implements UserService {
 		System.out.println("user name"+user.getUsername());
 		System.out.println("In find byname servie");
 		return user;
+	}
+
+	@Override
+	public List<User> getAllUserWithOutSuperAdminRole() {
+		return userRepository.getAllUserWithOutSuperAdminRole();
 	}
 
 }

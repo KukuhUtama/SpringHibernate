@@ -11,13 +11,20 @@ public class UserRepositoryImpl extends BaseSecurityRepositoryImpl<User> impleme
 
 	@Override
 	public User findUserByUsername(String username) {
-		query = getCurrentSession().createQuery("select u FROM User u where u.username= :username");
+		query = getCurrentSession().createQuery("select u FROM User u where u.username = :username");
         query.setParameter("username", username);
         List<User> users = query.getResultList();
         if (users != null && users.size() == 1) {
             return users.get(0);
         }
        return null;
+	}
+
+	@Override
+	public List<User> getAllUserWithOutSuperAdminRole() {
+		query = getCurrentSession().createQuery("from User user join fetch user.roles roles where roles.name != :name ");
+		query.setParameter("name", "SA");
+	    return (List<User>) query.getResultList();
 	}
   
 }

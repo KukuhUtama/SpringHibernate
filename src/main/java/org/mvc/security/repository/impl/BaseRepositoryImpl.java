@@ -2,6 +2,7 @@ package org.mvc.security.repository.impl;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.List;
 
 import javax.persistence.Query;
 
@@ -17,6 +18,7 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T> {
 	private SessionFactory sessionFactory;
 	private Class<T> entity;
 	protected Query query;
+
 
 	public BaseRepositoryImpl() {
 		Type t = getClass().getGenericSuperclass();
@@ -49,4 +51,8 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T> {
 		getCurrentSession().delete(entity);
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<T> getAll(){
+		return (List<T>) getCurrentSession().createQuery("select a from "+entity.getName()+ " a").getResultList();
+	}
 }

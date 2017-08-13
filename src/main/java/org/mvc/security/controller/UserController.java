@@ -1,10 +1,15 @@
 package org.mvc.security.controller;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.mvc.security.entity.Role;
 import org.mvc.security.entity.User;
 import org.mvc.security.service.UserService;
 import org.mvc.security.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +25,10 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private UserValidator userValidator;
+	private String roles;
+	private User user;
+	private List<User> users;
+	private org.springframework.security.core.userdetails.User authUser;
 
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public ModelAndView helloWorld() {
@@ -42,28 +51,20 @@ public class UserController {
 		userService.add(user);
 		return "redirect:/welcome";
 	}
-	
-	@RequestMapping(value = "/admin/addrole", method = RequestMethod.GET)
-	public String showAddRole(Model model){
-		model.addAttribute("role", new Role());
-		return "admin/addrole";
-	}
-	
-	@RequestMapping(value = "/admin/addrole", method = RequestMethod.POST)
-	public String saveAddRole(Model model){
-		
-		return "admin/listrole";
-	}
-	
-	@RequestMapping(value = "/admin/listrole", method = RequestMethod.GET)
-	public String listRole(Model model){
-		
-		return "admin/listrole";
-	}
-	
+
 	@RequestMapping(value = "/admin/listuser", method = RequestMethod.GET)
-	public String listUser(Model model){
-		
+	public String listUser(Model model) {
+		authUser = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext()
+				.getAuthentication().getPrincipal();
+		Collection<? extends GrantedAuthority> granted = SecurityContextHolder.getContext().getAuthentication()
+				.getAuthorities();
+		for (int i = 0; i < granted.size(); i++) {
+			roles = granted.toArray()[i] + "";
+		}
+		users = userService.getAllUserWithOutSuperAdminRole();
+		model.addAttribute("user", authUser.getUsername());
+		model.addAttribute("roles", roles);
+		model.addAttribute("users", users);
 		return "admin/listuser";
 	}
 }

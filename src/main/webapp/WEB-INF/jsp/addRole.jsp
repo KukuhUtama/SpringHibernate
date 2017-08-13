@@ -19,8 +19,10 @@
          <div class="form-group">
             <label class="control-label col-sm-2" for="name">Role Name</label>
             <div class="control-label col-sm-8">
-                  <form:input type="text" class="form-control" id="name" path="name" placeholder="Type Role Name"/>
-                  <form:errors path="name" class="text-danger"></form:errors>
+                  <%-- <form:input type="text" class="form-control" id="name" path="name" placeholder="Type Role Name"/>--%>
+                  <form:select  class="form-control"  path="name" items="${listRole}">
+                  <form:errors path="name" class="text-danger"></form:errors> 
+                  </form:select>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

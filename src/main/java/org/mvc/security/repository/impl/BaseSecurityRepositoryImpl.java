@@ -4,8 +4,9 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,8 +18,9 @@ public abstract class BaseSecurityRepositoryImpl<E> implements BaseSecurityRepos
 	@Autowired
     SessionFactory sessionFactory;
 	private Class<E> entity;
-	protected Criteria criteria;
 	protected Query query;
+	protected CriteriaBuilder builder;
+	protected CriteriaQuery<E> criteria;
 
 	public BaseSecurityRepositoryImpl() {
 		Type t = getClass().getGenericSuperclass();

@@ -8,9 +8,9 @@
 	<http auto-config="true">
 	<csrf disabled="true"/>
 		<intercept-url pattern="/" access="permitAll" />
-		<intercept-url pattern="/home**" access="hasAuthority('USER')" />
-		<intercept-url pattern="/admin**" access="hasAuthority('SA')" />
-		<!--<intercept-url pattern="/moderator**" access="hasAuthority('MODERATOR')" />  -->
+		<intercept-url pattern="/home/**" access="hasAuthority('USER')" />
+		<intercept-url pattern="/admin/**" access="hasAuthority('SA')" />
+		<intercept-url pattern="/moderator/**" access="hasAuthority('MODERATOR')" />
 		
 		
 		<form-login login-page="/login" 
@@ -28,5 +28,4 @@
 
 	<beans:bean id="customSuccessHandler"  class="org.mvc.security.configuration.CustomSuccessHandler" />
 	
-
 </beans:beans>
