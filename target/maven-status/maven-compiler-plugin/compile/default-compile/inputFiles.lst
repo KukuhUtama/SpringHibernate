@@ -5,6 +5,7 @@ E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\v
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\repository\BaseSecurityRepository.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\repository\impl\BaseRepositoryImpl.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\repository\impl\BaseSecurityRepositoryImpl.java
+E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\entity\Base.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\service\UserService.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\validator\UserValidator.java
 E:\Java\Workspace\SpringSecurity\SpringSecurity\src\main\java\org\mvc\security\repository\impl\UserRepositoryImpl.java

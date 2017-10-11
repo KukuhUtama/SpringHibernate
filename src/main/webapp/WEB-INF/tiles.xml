@@ -65,6 +65,11 @@
         <put-attribute name="title" value="Home Page" />  
         <put-attribute name="content" value="/WEB-INF/jsp/listUser.jsp" />  
      </definition>
+     
+     <definition name="admin/detailuser" extends="base.home">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="content" value="/WEB-INF/jsp/detailUser.jsp" />  
+     </definition>
  
 
 </tiles-definitions>

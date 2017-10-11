@@ -9,16 +9,16 @@ import javax.persistence.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.mvc.security.entity.Role;
 import org.mvc.security.repository.BaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BaseRepositoryImpl<T> implements BaseRepository<T> {
 
 	@Autowired
-	private SessionFactory sessionFactory;
+	protected SessionFactory sessionFactory;
 	private Class<T> entity;
 	protected Query query;
-
 
 	public BaseRepositoryImpl() {
 		Type t = getClass().getGenericSuperclass();
@@ -27,7 +27,7 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T> {
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+		sessionFactory = sessionFactory;
 	}
 
 	protected Session getCurrentSession() {
@@ -39,20 +39,30 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T> {
 	}
 
 	public void add(T entity) {
-		getCurrentSession().saveOrUpdate(entity);
+		sessionFactory.getCurrentSession().saveOrUpdate(entity);
 	}
 
+	
 	@SuppressWarnings("unchecked")
-	public T findById(int id) {
-		return (T) getCurrentSession().get(entity.getName(), id);
+	public T findById(long id) {
+		return (T) sessionFactory.getCurrentSession().get(entity.getName(), id);
 	}
 
 	public void delete(T entity) {
-		getCurrentSession().delete(entity);
+		sessionFactory.getCurrentSession().delete(entity);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<T> getAll(){
-		return (List<T>) getCurrentSession().createQuery("select a from "+entity.getName()+ " a").getResultList();
+	public List<T> getAll() {
+		return (List<T>)sessionFactory.getCurrentSession().createQuery("select a from "+entity.getName()+ " a").getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public void deleteById(long id) {
+		T bean = (T) getCurrentSession().load(entity.getName(), id);
+		if (null != bean) {
+			sessionFactory.getCurrentSession().delete(bean);
+		}
+
 	}
 }

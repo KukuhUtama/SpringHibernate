@@ -21,9 +21,8 @@ public class RoleValidator implements Validator{
 	@Override
 	public void validate(Object object, Errors errors) {
 		Role role = (Role) object;
-		
 		if (roleService.findByName(role.getName()) != null) {
-            errors.rejectValue("name", "Duplicate.role.rolename");
+            errors.rejectValue("name","Duplicate.role.rolename");
         }
 	}
 

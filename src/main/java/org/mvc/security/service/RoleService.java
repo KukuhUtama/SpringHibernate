@@ -10,4 +10,6 @@ public interface RoleService {
 	public void delete(Role role);
 	public Role findByName(String name);
 	public List<Role> getAllRole();
+	public void deleteById(long id);
+	public List<Role> findUngrantedRole(List<String> grantedRoleName);
 }

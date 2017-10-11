@@ -26,5 +26,5 @@ public class UserRepositoryImpl extends BaseSecurityRepositoryImpl<User> impleme
 		query.setParameter("name", "SA");
 	    return (List<User>) query.getResultList();
 	}
-  
+
 }

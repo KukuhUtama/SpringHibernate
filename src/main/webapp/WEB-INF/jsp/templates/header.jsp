@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <c:if test = "${fn:containsIgnoreCase(roles, 'SA')}"> 
-            <li><a href="<c:url value="/admin/listrole"/>">Role</a></li>
+            <li><a href="<c:url value="/admin/addrole"/>">Role</a></li>
             <li><a href="<c:url value="/admin/listuser"/>">User</a></li>
         </c:if>
         <c:if test ="${fn:containsIgnoreCase(roles,'MODERATOR')}">

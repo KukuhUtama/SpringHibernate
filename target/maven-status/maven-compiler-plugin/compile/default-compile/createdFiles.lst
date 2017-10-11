@@ -13,6 +13,7 @@ org\mvc\security\service\impl\RoleServiceImpl.class
 org\mvc\security\entity\Role.class
 org\mvc\security\entity\User.class
 org\mvc\security\repository\RoleRepository.class
+org\mvc\security\entity\Base.class
 org\mvc\security\service\SecurityService.class
 org\mvc\security\repository\impl\BaseSecurityRepositoryImpl.class
 org\mvc\security\repository\BaseRepository.class

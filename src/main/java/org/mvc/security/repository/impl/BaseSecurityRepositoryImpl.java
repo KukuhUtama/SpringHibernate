@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class BaseSecurityRepositoryImpl<E> implements BaseSecurityRepository<E> {
 
 	@Autowired
-    SessionFactory sessionFactory;
+	SessionFactory sessionFactory;
 	private Class<E> entity;
 	protected Query query;
 	protected CriteriaBuilder builder;
@@ -42,6 +42,14 @@ public abstract class BaseSecurityRepositoryImpl<E> implements BaseSecurityRepos
 
 	public void add(E e) {
 		getCurrentSession().saveOrUpdate(e);
+	}
+
+	public void update(E e) {
+		getCurrentSession().update(e);
+	}
+
+	public E findById(long id) {
+		return (E) getCurrentSession().get(entity.getName(), id);
 	}
 
 }
