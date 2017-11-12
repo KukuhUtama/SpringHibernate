@@ -26,23 +26,21 @@
 
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="roles">Role(s)</label>
+		<div class="control-label col-sm-2">
 			<c:forEach items="${user.roles}" var="role" varStatus="status">
-				<div class="control-label col-sm-4">
+		
 					<tr>
 						<td><form:input id="input${status.index}"
 								class="form-control" path="roles[${status.index}].name"
 								value="${role.name}" /></td>
-					</tr>
-				</div>
-				<div class="control-label col-sm-4">
-					<tr>
 						<td><button id="${status.index}" type="button"
 								class="btn btn-danger" style="display:${isRevoke ? 'block' : 'none'}; width: 100%">Revoke Role</button></td>
 					    <td><button id="${status.index}" type="button"
 								class="btn btn-primary" style="display:${isGrant ? 'block' : 'none'}; width: 100%">Grant Role</button></td>
 					</tr>
-				</div>
+			
 			</c:forEach>
+				</div>
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form:form>

@@ -10,11 +10,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+			
 				    <c:url var="detailUserUrl" value="/admin/detailuser"/>
+			
 					<c:forEach items="${users}" var="user">
-						<td>${user.username}</td>
+					   <tr>
 						<c:forEach items="${user.roles}" var="role">
+					    <td>${user.username}</td>
 						<td>${role.name}</td>
 						<td>
 						   <div class="btn-group">
@@ -27,9 +29,10 @@
 						   </div>
 						   
 						</td>
+						</tr>
 						</c:forEach>
 					</c:forEach>
-				</tr>
+				
 			</tbody>
 		</table>
 	</div>

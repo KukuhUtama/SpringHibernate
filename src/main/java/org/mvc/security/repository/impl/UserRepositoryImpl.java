@@ -20,9 +20,10 @@ public class UserRepositoryImpl extends BaseSecurityRepositoryImpl<User> impleme
        return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getAllUserWithOutSuperAdminRole() {
-		query = getCurrentSession().createQuery("from User user join fetch user.roles roles where roles.name != :name ");
+		query = getCurrentSession().createQuery("select distinct user from User user join fetch user.roles roles where roles.name != :name");
 		query.setParameter("name", "SA");
 	    return (List<User>) query.getResultList();
 	}
