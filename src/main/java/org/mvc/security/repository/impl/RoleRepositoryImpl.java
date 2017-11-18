@@ -24,7 +24,7 @@ public class RoleRepositoryImpl extends BaseRepositoryImpl<Role> implements Role
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Role> findUngrantedRole(List<String> grantedRoleName) {
-		query = sessionFactory.getCurrentSession().createQuery("FROM Role r WHERE r.name NOT IN (:names)")
+		query = sessionFactory.getCurrentSession().createQuery("FROM Role r WHERE r.name NOT IN (:names) AND r.name <> 'SA'")
 				.setParameterList("names", grantedRoleName);
 		return  query.getResultList();
 	}

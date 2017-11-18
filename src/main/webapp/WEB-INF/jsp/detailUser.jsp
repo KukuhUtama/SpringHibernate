@@ -8,6 +8,24 @@
 			$("#input" + id + "").remove();
 			$("#" + id + "").remove();
 		});
+		
+		$(".btn.btn-primary").on("click", function() {
+			var id = this.id;
+			$("#input" + id + "").remove();
+			$("#" + id + "").remove();
+			
+			var tr ='<tr>'+
+			   '<td><input id=\"input${status.index}\"' +
+				'class=\"form-control\" path=\"roles[${status.index}].name\"'+
+				'value=\"${role.name}\" /></td>'+
+	            '<td><button id=\"${status.index}\" type=\"button\"'+
+				' class=\"btn btn-primary\" style=\"display:\${isGrant \? \'block\' : \'none\'}; width: 100%;\" disabled>Grant Role</button></td>'+
+	            '</tr>';
+			$("#granted-role").append(tr);
+			
+		});
+		
+		
 	});
 </script>
 <div class="container">
@@ -26,7 +44,7 @@
 
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="roles">Role(s)</label>
-		<div class="control-label col-sm-2">
+		<div class="control-label col-sm-2" id="granted-role">
 			<c:forEach items="${user.roles}" var="role" varStatus="status">
 		
 					<tr>
@@ -36,11 +54,27 @@
 						<td><button id="${status.index}" type="button"
 								class="btn btn-danger" style="display:${isRevoke ? 'block' : 'none'}; width: 100%">Revoke Role</button></td>
 					    <td><button id="${status.index}" type="button"
+								class="btn btn-primary" style="display:${isGrant ? 'block' : 'none'}; width: 100%;" disabled>Grant Role</button></td>
+					</tr>
+			
+			</c:forEach>
+		</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="roles">Ungranted Role(s)</label>
+		<div class="control-label col-sm-2">
+			<c:forEach items="${ungrantedroles}" var="role" varStatus="status">
+					<tr>
+						<td><form:input id="input${status.index}ungranted"
+								class="form-control" path="roles[${status.index}].name"
+								value="${role.name}" /></td>
+					    <td><button id="${status.index}ungranted" type="button"
 								class="btn btn-primary" style="display:${isGrant ? 'block' : 'none'}; width: 100%">Grant Role</button></td>
 					</tr>
 			
 			</c:forEach>
-				</div>
+		</div>
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form:form>

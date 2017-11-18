@@ -72,11 +72,9 @@ public class UserController {
 		model.addAttribute("user", authUser.getUsername());
 		model.addAttribute("roles", roles);
 		model.addAttribute("users", users);
-		System.out.println(users.get(0).getRoles().size());
 		return "admin/listuser";
 	}
 	
-
 	
 	@RequestMapping(value = "/admin/detailuser", method = RequestMethod.GET)
 	public String detailUser(@RequestParam(value="id", required=true) long id, @RequestParam(value="isRevoke", required=false) boolean isRevoke, @RequestParam(value="isGrant", required=false) boolean isGrant, Model model){
